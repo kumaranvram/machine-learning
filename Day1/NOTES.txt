@@ -1,0 +1,95 @@
+EDA - Exploratory Data Analysis
+
+
+setwd('/Users/kumaran/Work/machine-learning/Data And Code')
+
+############################## Uni variant analysis ##############################
+> gold <- read.csv("Gold.csv", header = T, stringsAsFactors = F)
+> View(gold)
+> library(lattice)
+> library(scatterplot3d)
+> gold$rCol = ifelse(gold$GLDr1>0, "blue", "red") - gold$col name like excel variable$colname
+
+<- and = are interchangeable
+
+
+> gold[1:10, 2:5]
+> ncol(gold)
+[1] 12
+> nrow(gold)
+[1] 437
+> dim(gold)
+[1] 437  12
+
+
+> summary(gold)
+
+      SlNo         Date               FCXr1               FCXr4           FCXHigh.Low.    
+ Min.   :  1   Length:437         Min.   :-0.299708   Min.   :-0.61047   Min.   :0.02068  
+ 1st Qu.:110   Class :character   1st Qu.:-0.029604   1st Qu.:-0.05877   1st Qu.:0.06540  
+ Median :219   Mode  :character   Median : 0.012397   Median : 0.04119   Median :0.08983  
+ Mean   :219                      Mean   : 0.006497   Mean   : 0.02619   Mean   :0.10850  
+ 3rd Qu.:328                      3rd Qu.: 0.048015   3rd Qu.: 0.11044   3rd Qu.:0.12454  
+ Max.   :437                      Max.   : 0.326190   Max.   : 0.59167   Max.   :0.65036  
+ 
+   FCXVolNorm         DHYr1               XLFr1               SPYr1           
+ Min.   :0.0078   Min.   :-0.390351   Min.   :-0.239592   Min.   :-0.1979337  
+ 1st Qu.:0.1171   1st Qu.:-0.016913   1st Qu.:-0.017478   1st Qu.:-0.0117004  
+ Median :0.2085   Median : 0.000000   Median : 0.001108   Median : 0.0008280  
+ Mean   :0.4210   Mean   :-0.001305   Mean   :-0.001032   Mean   :-0.0005792  
+ 3rd Qu.:0.5996   3rd Qu.: 0.015152   3rd Qu.: 0.014184   3rd Qu.: 0.0131036  
+ Max.   :2.4831   Max.   : 0.323741   Max.   : 0.325243   Max.   : 0.1329225  
+ 
+     GLDr1                RTPr1               rCol          
+ Min.   :-0.0743048   Min.   :-0.350700   Length:437        
+ 1st Qu.:-0.0089262   1st Qu.:-0.026414   Class :character  
+ Median : 0.0004994   Median : 0.004306   Mode  :character  
+ Mean   : 0.0008731   Mean   : 0.004168                     
+ 3rd Qu.: 0.0111417   3rd Qu.: 0.036870                     
+ Max.   : 0.1134262   Max.   : 0.426151  
+
+
+
+> density(gold$GLDr1)
+
+       x                  y            
+ Min.   :-0.08629   Min.   : 0.000002  
+ 1st Qu.:-0.03336   1st Qu.: 0.110744  
+ Median : 0.01956   Median : 0.468745  
+ Mean   : 0.01956   Mean   : 4.718971  
+ 3rd Qu.: 0.07249   3rd Qu.: 6.188915  
+ Max.   : 0.12541   Max.   :26.485609  
+
+
+
+> plot(density(gold$GLDr1), col="red")
+
+> abline(v = mean(gold$GLDr1, lwd=1, col="red"))
+
+h <- hist(gold$GLDr1, breaks =10, xlab="Gold Return", main="Data")
+
+> h <- hist(gold$GLDr1, breaks =10, xlab="Gold Return", main="Data distibution", ylim = c(0, 200))
+
+
+#overlap box and normal distribution graph
+abline(v = mean(gold$GLDr1, lwd=1, col="red"))
+xfit <- seq(min(gold$GLDr1), max(gold$GLDr1), length=length(gold$GLDr1))
+yfit <- dnorm (xfit, mean= mean(gold$GLDr1), sd=sd(gold$GLDr1))
+yfit <- yfit*200/max(yfit)
+lines(xfit, yfit, col="red", lwd=2)
+
+#fit qqline and qqnorm
+qqnorm(gold$GLDr1)
+qqline(gold$GLDr1, col=2)
+
+
+#boxplot to plot the outliers to the presicion of 3.33 sigma
+boxplot(gold$GLDr1, col="orange", main="GLDr1")
+
+#same as above as numbers
+boxplot.stats(gold$GLDr1)
+
+ts.gold <- ts(gold$GLDr1, start = c(2001, 01), freq=52
+plot(ts.gold)
+
+############################## End of Uni variant analysis ##############################
