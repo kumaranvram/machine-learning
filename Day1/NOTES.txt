@@ -92,4 +92,8 @@ boxplot.stats(gold$GLDr1)
 ts.gold <- ts(gold$GLDr1, start = c(2001, 01), freq=52
 plot(ts.gold)
 
+
+> mosaicplot ()
+> xtabs
+
 ############################## End of Uni variant analysis ##############################
