@@ -1,3 +1,6 @@
+Day 2:
+------
+
  #Get list of variables
  > names(mydata)
 [1] "Sample" "Ratio1" "Ratio2" "Ratio3" "Ratio4" "Class" 
