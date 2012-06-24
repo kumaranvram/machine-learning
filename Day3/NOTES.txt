@@ -16,3 +16,28 @@ Logistic Regression
 
 
 
+ml <- glm(risk~., data = credit, family=binomial())
+pred <- predict (ml, type="response")
+p <- ifelse (pred < 0.5, 1, 2)
+#confusion matrix
+com <- table(risk$newClass, p)
+com
+
+mydata <- credit
+require(rpart)
+ml <- rpart (Risk ~., data = mydata, method = "class")
+mla <- rpart (Risk~., data = mydata, method ="clas")
+View(mydata)
+#display results
+printcp(ml)
+#visualize cross validation results
+plotcp(ml)
+#summary of plots
+summary(ml)
+
+#draws the tree outline
+plot(ml)
+#superimposes the text
+text(ml)
+#superimposes a detailed text
+text(ml, use.n=TRUE, all=TRUE)
