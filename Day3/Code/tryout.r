@@ -71,3 +71,18 @@ xm <-pmml(c2)
 table(newdata$ARPUStatus, c2)
 table(newdata$ARPUStatus, c3)
 
+
+
+Generalized linear model(glm)
+-----------------------------
+
+risk$newClass <- as.factor(ifelse(risk$Class == "High", "High", "Normal"))
+str(risk)
+View(risk)
+ml <- glm(newClass~Ratio1+Ratio2, data = risk, family=binomial())
+pred <- predict (ml, type="response")
+p <- ifelse (pred < 0.5, 1, 2)
+#confusion matrix
+com <- table(risk$newClass, p)
+com
+

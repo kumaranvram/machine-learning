@@ -3,3 +3,16 @@ Day 3
 c1<-kmeans(data, noofclusters)
 df1 <- data.frame(data, c1$cluster)
 plot(df1)
+
+Linear Regression
+1. Binomial Regression
+2. Poisson Regression
+Logistic Regression
+
+1. Forward selection
+2. Backward elimination
+3. hybrid
+
+
+
+

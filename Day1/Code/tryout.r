@@ -8,3 +8,5 @@ qqnorm(gold$GLDr1)
 qqline(gold$GLDr1, col=2)
 boxplot(gold$GLDr1, col="orange", main="GLDr1")
 boxplot.stats(gold$GLDr1)
+
+
