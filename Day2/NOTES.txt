@@ -1,0 +1,42 @@
+ #Get list of variables
+ > names(mydata)
+[1] "Sample" "Ratio1" "Ratio2" "Ratio3" "Ratio4" "Class" 
+ 
+ #Get datatypes of the variables in the dataset
+ > str(mydata)
+'data.frame':	150 obs. of  6 variables:
+ $ Sample: int  1 2 3 4 5 6 7 8 9 10 ...
+ $ Ratio1: num  6.1 6.3 6 5.8 6.5 6.9 5 5 5.2 5.7 ...
+ $ Ratio2: num  2.9 3.4 3 2.7 3.2 3.1 2 3.6 3.5 4.4 ...
+ $ Ratio3: num  4.7 5.6 4.8 5.1 5.1 5.4 3.5 1.4 1.5 1.5 ...
+ $ Ratio4: num  1.4 2.4 1.8 1.9 2 2.1 1 0.2 0.2 0.4 ...
+ $ Class : chr  "Low" "Medium" "Medium" "Medium" ...
+
+
+ scaling x-mu/sigma
+ t.test(n1sample$age, mu=35)
+t.test(n1sample$age, mu=35)
+t.test(n1sample$age, mu=35)
+t.test(n1sample$age, mu=35)
+t.test(n1sample$age, mu=35)
+n1sample
+n1sample
+t.test(n1sample$age, mu=35)
+t.test(n1sample$age, mu=35)
+t.test(n1sample$age, mu=35)
+t.test(n1sample$age, mu=35)
+risk
+View(risk)
+View(credit)
+t.test(duration_mths ~ Risk)
+t.test(duration_mths ~ Risk, data = "credit")
+t.test(age ~ Risk, data = "credit")
+t.test(age ~ Risk, data = credit)
+boxplot(age ~ Risk)
+boxplot(age, Risk)
+boxplot(credit$age, Risk)
+boxplot(credit$age, credit$Risk)
+boxplot(credit$age ~ credit$Risk)
+testchi <- table (credit$Risk, credit$job)
+chisq.test(testchi)
+history()
